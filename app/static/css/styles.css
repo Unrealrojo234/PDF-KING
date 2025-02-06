@@ -1,0 +1,83 @@
+body {
+  background-color: #f8f9fa;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+h1 {
+  color: #343a40;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+#response {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #495057;
+}
+textarea {
+  resize: none;
+
+  height: 120px;
+}
+
+#text {
+  max-width: 36rem;
+  display: block;
+  margin: auto;
+  margin-top: 4rem;
+}
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #0b5ed7;
+}
+.container {
+  max-width: 600px;
+  width: 100%;
+}
+
+/* From Uiverse.io by aadium */
+.loader {
+  display: inline-block;
+  position: absolute;
+  top: 16rem;
+  margin: auto;
+}
+
+#loader-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 250px;
+  height: 150px;
+  position: relative;
+  animation: rotation 0.75s linear infinite;
+  border-radius: 100em;
+}
+
+.path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 20;
+  stroke-linecap: round;
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}

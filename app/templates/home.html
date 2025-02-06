@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+
+<div id="loader-div">
+  <div class="loader">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 66 66"
+      height="100px"
+      width="100px"
+      class="spinner"
+    >
+      <circle
+        stroke="url(#gradient)"
+        r="20"
+        cy="33"
+        cx="33"
+        stroke-width="1"
+        fill="transparent"
+        class="path"
+      ></circle>
+      <linearGradient id="gradient">
+        <stop stop-opacity="1" stop-color="#fe0000" offset="0%"></stop>
+        <stop stop-opacity="0" stop-color="#af3dff" offset="100%"></stop>
+      </linearGradient>
+    </svg>
+  </div>
+</div>
+<div class="container">
+  <!-- Response Box -->
+  <div id="response" class="mb-4 p-4 rounded">
+    <p class="m-0">Your AI response will appear here.</p>
+  </div>
+
+  <!-- Input Box -->
+  <div class="mb-4 p-4 rounded bg-white shadow" id="text">
+    <textarea
+      id="prompt"
+      class="form-control mb-3"
+      placeholder="Enter your prompt here..."
+    ></textarea>
+    <button class="btn btn-primary w-100">Send</button>
+  </div>
+</div>
+{% endblock %}
