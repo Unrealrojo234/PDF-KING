@@ -9,7 +9,7 @@ loader.style.display = "none";
 
 const postPrompt = (prompt) => {
   try {
-    fetch("http://127.0.0.1:5000/api/ai", {
+    fetch("/api/ai", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
