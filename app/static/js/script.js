@@ -9,6 +9,8 @@ responseDiv.style.display = "none";
 
 loader.style.display = "none";
 
+let pdfExtract = null;
+
 const postFile = (formData) => {
   fetch("/api/upload", {
     method: "POST",
@@ -30,6 +32,17 @@ const postFile = (formData) => {
           showConfirmButton: false,
           timer: 1500,
         });
+      } else {
+        Swal.fire({
+          icon: "success",
+          title: "File uploaded and extracted!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        console.log(data);
+
+        pdfExtract = data.extract;
       }
     })
     .catch((error) => {
@@ -95,9 +108,13 @@ const postPrompt = (prompt) => {
 };
 
 sendBtn.onclick = (event) => {
-  loader.style.display = "block";
-
   event.preventDefault(); // Prevent form submission if the button is inside a form
-  const prompt = promptTextarea.value;
-  postPrompt(prompt);
+  loader.style.display = "block";
+  if (pdfExtract) {
+    const prompt = promptTextarea.value + pdfExtract;
+    postPrompt(prompt);
+  } else {
+    const prompt = promptTextarea.value;
+    postPrompt(prompt);
+  }
 };
