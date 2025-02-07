@@ -34,12 +34,17 @@
 
   <!-- Input Box -->
   <div class="mb-4 p-4 rounded bg-white shadow" id="text">
-    <textarea
-      id="prompt"
-      class="form-control mb-3"
-      placeholder="Enter your prompt here..."
-    ></textarea>
-    <button class="btn btn-primary w-100">Send</button>
+    <form>
+      <textarea
+        required
+        id="prompt"
+        class="form-control mb-3"
+        placeholder="Enter your prompt here..."
+      ></textarea>
+      <input type="file" class="form-control" id="fileInput" />
+      <br />
+      <button class="btn btn-primary w-100">Send</button>
+    </form>
   </div>
 </div>
 {% endblock %}

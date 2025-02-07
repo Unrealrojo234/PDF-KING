@@ -3,6 +3,7 @@ from . import api_bp  # Import the API Blueprint
 import dashscope
 from dotenv import load_dotenv
 import os
+import PyPDF2
 
 load_dotenv()
 
@@ -36,6 +37,25 @@ def root():
 def ai(prompt):
     response = get_res(prompt)
     return response
+
+
+@api_bp.route('/upload', methods = ['POST'])
+def upload_file():
+    try:
+        file = request.files['file']
+        file_name = file.filename
+        reader = PyPDF2.PdfReader(file)
+        num_pages = len(reader.pages)
+
+        extracted_text = ""
+
+        #Extracting text from each page
+        for page_num in range(num_pages):
+            page = reader.pages[page_num]
+            extracted_text += page.extract_text() + "\n"
+        return jsonify({'success':True,'filename':file_name,'extract':extracted_text})
+    except:
+        return jsonify({'success':False})
 
 
 

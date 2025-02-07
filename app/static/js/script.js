@@ -3,9 +3,59 @@ let promptTextarea = document.querySelector("textarea");
 let responseDiv = document.getElementById("response");
 let loader = document.querySelector(".loader");
 
+let fileInput = document.getElementById("fileInput");
+
 responseDiv.style.display = "none";
 
 loader.style.display = "none";
+
+const postFile = (formData) => {
+  fetch("/api/upload", {
+    method: "POST",
+    body: formData, // Send FormData directly
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      return res.json();
+    })
+    .then((data) => {
+      if (data.success == false) {
+        Swal.fire({
+          icon: "error",
+          title: "An error ocurred",
+          text: "Invalid file type",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      Swal.fire({
+        icon: "error",
+        title: "An error ocurred",
+        text: error,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    });
+};
+
+fileInput.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+
+  if (file) {
+    console.log("File selected successfully:", file.name);
+    const formData = new FormData();
+    formData.append("file", file); // Append the file to FormData
+    postFile(formData); // Send the FormData
+  } else {
+    console.log("No file selected");
+  }
+});
 
 const postPrompt = (prompt) => {
   try {
