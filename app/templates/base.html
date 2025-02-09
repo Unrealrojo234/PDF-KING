@@ -19,6 +19,56 @@
 
     <!--SweetAlert2 cdn-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      .btn-primary {
+        background-color: #0d6efd;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+      }
+      .btn-primary:hover {
+        background-color: #0b5ed7;
+      }
+      .container {
+        max-width: 600px;
+        width: 100%;
+      }
+
+      /* From Uiverse.io by aadium */
+      .loader {
+        display: inline-block;
+        position: absolute;
+        top: 16rem;
+        margin: auto;
+      }
+
+      #loader-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .spinner {
+        width: 250px;
+        height: 150px;
+        position: relative;
+        animation: rotation 0.75s linear infinite;
+        border-radius: 100em;
+      }
+
+      .path {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 20;
+        stroke-linecap: round;
+      }
+
+      @keyframes rotation {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body
     class="container-fluid"
@@ -31,7 +81,12 @@
     "
   >
     <header>
-      <h1 class="text-center">PDF Master</h1>
+      <h1
+        style="color: #343a40; font-weight: bold; margin-top: 2rem"
+        class="text-center"
+      >
+        PDF Master
+      </h1>
       <!--<nav>
         <a href="{{ url_for('main.home') }}">Home</a>
         <a href="{{ url_for('main.about') }}">About</a>

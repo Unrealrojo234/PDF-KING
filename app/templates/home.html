@@ -29,16 +29,33 @@
 <div>
   <!-- Response Box -->
   <div
-    style="max-width: 80rem; display: block; margin: auto"
+    style="
+      max-width: 80rem;
+      display: block;
+      margin: auto;
+      min-height: 150px;
+      display: flex;
+      font-size: 1.2rem;
+      color: #495057;
+    "
     class="response mb-4 p-2 rounded"
   ></div>
 
   <!-- Input Box -->
-  <div class="mb-4 p-2 rounded bg-white shadow" id="text">
+  <div
+    class="mb-4 p-2 rounded bg-white shadow"
+    style="max-width: 36rem; display: block; margin: auto; margin-top: 4rem"
+    id="text"
+  >
     <form>
       <textarea
         required
         id="prompt"
+        style="
+          resize: none;
+
+          height: 120px;
+        "
         class="form-control mb-3"
         placeholder="Enter your prompt here..."
       ></textarea>
@@ -49,7 +66,17 @@
   </div>
 </div>
 
-<div id="status" class="card response" style="border: none">
+<div
+  id="status"
+  class="card response"
+  style="
+    border: none;
+    max-width: 36rem;
+    display: block;
+    margin: auto;
+    margin-top: 4rem;
+  "
+>
   <p>Status Code: <span id="statusCode"></span></p>
   <p>Input Tokens: <span class="text-info" id="inputTokens"></span></p>
   <p>Output Tokens: <span class="text-warning" id="outputTokens"></span></p>
