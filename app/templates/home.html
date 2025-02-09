@@ -26,14 +26,15 @@
     </svg>
   </div>
 </div>
-<div class="container">
+<div>
   <!-- Response Box -->
-  <div id="response" class="mb-4 p-4 rounded">
-    <p class="m-0">Your AI response will appear here.</p>
-  </div>
+  <div
+    style="max-width: 80rem; display: block; margin: auto"
+    class="response mb-4 p-2 rounded"
+  ></div>
 
   <!-- Input Box -->
-  <div class="mb-4 p-4 rounded bg-white shadow" id="text">
+  <div class="mb-4 p-2 rounded bg-white shadow" id="text">
     <form>
       <textarea
         required
@@ -46,5 +47,12 @@
       <button class="btn btn-primary w-100">Send</button>
     </form>
   </div>
+</div>
+
+<div id="status" class="card response" style="border: none">
+  <p>Status Code: <span id="statusCode"></span></p>
+  <p>Input Tokens: <span class="text-info" id="inputTokens"></span></p>
+  <p>Output Tokens: <span class="text-warning" id="outputTokens"></span></p>
+  <p>Total Tokens: <span class="text-danger" id="totalTokens"></span></p>
 </div>
 {% endblock %}

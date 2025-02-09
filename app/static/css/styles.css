@@ -10,14 +10,9 @@ h1 {
   font-weight: bold;
   margin-top: 2rem;
 }
-#response {
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.response {
   min-height: 150px;
   display: flex;
-  align-items: center;
-
-  justify-content: center;
   font-size: 1.2rem;
   color: #495057;
 }
@@ -74,6 +69,13 @@ textarea {
   stroke-dasharray: 100;
   stroke-dashoffset: 20;
   stroke-linecap: round;
+}
+
+#status {
+  max-width: 36rem;
+  display: block;
+  margin: auto;
+  margin-top: 4rem;
 }
 
 @keyframes rotation {
